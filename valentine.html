@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Will You Be My Valentine? ❤️</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 420px;
+      width: 90%;
+      animation: fadeIn 1.5s ease;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    p {
+      font-size: 1rem;
+      margin: 15px 0;
+      line-height: 1.6;
+    }
+
+    .name {
+      font-weight: 600;
+      color: #ffe6ec;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin: 25px 0 15px;
+      font-weight: 600;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 12px 22px;
+      border-radius: 30px;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    }
+
+    .yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    .no {
+      background: #fff;
+      color: #ff4d6d;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    a {
+      color: #fff;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      font-size: 20px;
+      animation: rise 6s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0); opacity: 0; }
+      10% { opacity: 0.7; }
+      100% { transform: translateY(-110vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating hearts -->
+  <script>
+    for (let i = 0; i < 20; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerText = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = 4 + Math.random() * 4 + 's';
+      heart.style.fontSize = 16 + Math.random() * 24 + 'px';
+      document.body.appendChild(heart);
+    }
+  </script>
+
+  <div class="container" id="page1">
+    <h1>Hey <span class="name">Emily</span> 💖</h1>
+
+    <p>
+      I’ve been meaning to tell you something special.
+      Every smile, every little moment with you makes my world brighter.
+      Every moment with you — your smile, your presence — adds a little more light to my world.
+    </p>
+
+    <p>
+      So today, with a slightly racing heart and a big smile on my face…
+    </p>
+
+    <div class="question">Will you be my Valentine? 🌹</div>
+
+    <div class="buttons">
+      <button class="yes" onclick="sayYes()">Yes 💕</button>
+      <button class="no" onclick="moveNo(this)">No 🙈</button>
+    </div>
+  </div>
+
+  <div class="container hidden" id="page2">
+    <h1>You said YES! 💘</h1>
+
+    <p>
+      You just made my heart smile in ways I can’t even explain.
+      Thank you for choosing me — I promise lots of laughs, warmth, and beautiful memories together.
+    </p>
+
+    <p>
+      This song always reminds me of you 🎶
+    </p>
+
+    <p>
+      👉 <a href="https://www.youtube.com/watch?v=1ho0ixDMsos&list=RD1ho0ixDMsos&start_radio=1" target="_blank">
+      Click here to listen
+      </a>
+    </p>
+
+    <p>
+      Happy Valentine’s Day ❤️
+    </p>
+  </div>
+
+  <script>
+    function sayYes() {
+      document.getElementById('page1').classList.add('hidden');
+      document.getElementById('page2').classList.remove('hidden');
+    }
+
+    function moveNo(btn) {
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 200 - 100;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    // HOW TO EDIT:
+    // 1. Change the name "Emily" to the recipient's name.
+    // 2. Replace VIDEO_ID_HERE in the YouTube link with the actual video ID.
+    //    Example: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+  </script>
+
+</body>
+</html>
